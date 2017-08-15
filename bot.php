@@ -42,11 +42,7 @@ if (!is_null($events['events'])) {
 				'type' => 'text',
 				'text' => 'สวัสดี '. $user['displayName']//$userId//$sss //'ทดสอบ '. ' : ' .$text . ' '. $event
 				];
-			$messages += [
-				'type' => 'text',
-				'text' => 'xx '. $user['displayName']//$userId//$sss //'ทดสอบ '. ' : ' .$text . ' '. $event
-				]
-			
+		
 			
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
