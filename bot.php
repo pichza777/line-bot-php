@@ -16,22 +16,22 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		$userId = $event['source']['userId'];
 		
-		$url = 'https://api.line.me/v2/bot/profile';
+		$url2 = 'https://api.line.me/v2/bot/profile';
 			$data = [
 				'userId' => $userId,
 			];
-			$post = json_encode($data);
-			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+			$post2 = json_encode($data);
+			$headers2 = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
-			$ch = curl_init($url);
+			$ch2 = curl_init($url2);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $post2);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers2);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-			$result = curl_exec($ch);
-			curl_close($ch);
-			$profileData = json_decode($result, true);
+			$result2 = curl_exec($ch2);
+			curl_close($ch2);
+			$profileData = json_decode($result2, true);
 		
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
@@ -42,7 +42,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $profileData//$sss //'ทดสอบ '. ' : ' .$text . ' '. $event
+				'text' => $userId . $profileData//$sss //'ทดสอบ '. ' : ' .$text . ' '. $event
 				];
 
 			
