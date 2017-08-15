@@ -36,11 +36,17 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-
+	
 			// Build message to reply back
-			$messages = [
+			$messages = [{
 				'type' => 'text',
 				'text' => 'สวัสดี '. $user['displayName']//$userId//$sss //'ทดสอบ '. ' : ' .$text . ' '. $event
+			},
+			{
+				'type' => 'image',
+				'originalContentUrl': $user['pictureUrl'],
+				'previewImageUrl': $user['pictureUrl']
+			}
 				];
 
 			
@@ -74,6 +80,7 @@ if (!is_null($events['events'])) {
 			$user = $event['profile'];
 			// Build message to reply back
 			$messages = [
+			
 				'type' => 'text',
 				'text' => $event['type'] . ' ' . $event['source']['userId']//$sss //'ทดสอบ '. ' : ' .$text . ' '. $event
 				];
