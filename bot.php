@@ -12,7 +12,7 @@ $events = json_decode($content, true);
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
-	
+	$sss = $events['events'];
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
 		$userId = $event['source']['userId'];
@@ -28,7 +28,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $events //'ทดสอบ '. ' : ' .$text . ' '. $event
+				'text' => $sss //'ทดสอบ '. ' : ' .$text . ' '. $event
 				];
 
 			
