@@ -26,13 +26,14 @@ if (!is_null($events['events'])) {
 			$ch2 = curl_init($url2);
 			//curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 			//curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $post2);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers2);
-			curl_setopt($ch, CURLOPT_HTTPGET, 1);
+			curl_setopt($ch2, CURLOPT_POSTFIELDS, $post2);
+			curl_setopt($ch2, CURLOPT_HTTPHEADER, $headers2);
+			curl_setopt($ch2, CURLOPT_HTTPGET, 1);
 			//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result2 = curl_exec($ch2);
-			curl_close($ch2);
+			
 			$profileData = $result2;//json_decode($result2, true);
+			curl_close($ch2);
 		
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
