@@ -20,15 +20,15 @@ if (!is_null($events['events'])) {
 			$data = [
 				'userId' => $userId,
 			];
-			$post2 = json_encode($data);
-			$headers2 = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+			$post2 = $userId;//json_encode($data);
+			$headers2 = array('Authorization: Bearer ' . $access_token);
 
 			$ch2 = curl_init($url2);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			//curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+			//curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post2);
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers2);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+			//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result2 = curl_exec($ch2);
 			curl_close($ch2);
 			$profileData = json_decode($result2, true);
