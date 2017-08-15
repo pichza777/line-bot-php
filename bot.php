@@ -28,6 +28,7 @@ if (!is_null($events['events'])) {
 			//curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post2);
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers2);
+			curl_setopt($ch, CURLOPT_HTTPGET, 1);
 			//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result2 = curl_exec($ch2);
 			curl_close($ch2);
