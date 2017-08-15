@@ -40,7 +40,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $result//$userId//$sss //'ทดสอบ '. ' : ' .$text . ' '. $event
+				'text' => 'สวัสดี '.$result['displayName']//$userId//$sss //'ทดสอบ '. ' : ' .$text . ' '. $event
 				];
 
 			
