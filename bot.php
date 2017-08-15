@@ -42,7 +42,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $userId . $profileData//$sss //'ทดสอบ '. ' : ' .$text . ' '. $event
+				'text' => $userId . $result2//$sss //'ทดสอบ '. ' : ' .$text . ' '. $event
 				];
 
 			
