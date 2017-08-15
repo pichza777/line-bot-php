@@ -1,4 +1,5 @@
 <?php
+
 $access_token = 'aAMls5K18jevEiIZZlJ1zyu5u8gLxv7FGOYcaHak5tt2Zni2NfzWs5nfapzErLNnBsK8TlaCnHJvxBg1md67eMxWaFPl9GE/sCKzFpC0mM1ai70aKau/lF+0svFNjCWq8Zv1+RMvO4eRAVeYfoEybwdB04t89/1O/w1cDnyilFU=';
 
 $profileData = '';
@@ -16,25 +17,17 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		$userId = $event['source']['userId'];
 		
-		// $url2 = 'https://api.line.me/v2/bot/profile';
-			// $data = [
-				// 'userId' => $userId,
-			// ];
-			// $post2 = $userId;//json_encode($data);
-			// $headers2 = array('Authorization: Bearer ' . $access_token);
+		$bot = new \LINE\LINEBot(new CurlHTTPClient('aAMls5K18jevEiIZZlJ1zyu5u8gLxv7FGOYcaHak5tt2Zni2NfzWs5nfapzErLNnBsK8TlaCnHJvxBg1md67eMxWaFPl9GE/sCKzFpC0mM1ai70aKau/lF+0svFNjCWq8Zv1+RMvO4eRAVeYfoEybwdB04t89/1O/w1cDnyilFU='), [
+			'channelSecret' => '047a51ae1557c6a602e7a417d2e68182'
+		]);
 
-			// $ch2 = curl_init($url2);
-			// //curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-			// //curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			// curl_setopt($ch2, CURLOPT_POSTFIELDS, $post2);
-			// curl_setopt($ch2, CURLOPT_HTTPHEADER, $headers2);
-			// curl_setopt($ch2, CURLOPT_HTTPGET, 1);
-			// curl_setopt($ch2, CURLOPT_FOLLOWLOCATION, true);
-			
-			// $result2 = curl_exec($ch2);
-			
-			// $profileData = $result2;//json_decode($result2, true);
-			// curl_close($ch2);
+		$res = $bot->getProfile($userId);
+		if ($res->isSucceeded()) {
+			$profile = $res->getJSONDecodedBody();
+			$displayName = $profile['displayName'];
+			$statusMessage = $profile['statusMessage'];
+			$pictureUrl = $profile['pictureUrl'];
+		}
 		
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
