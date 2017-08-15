@@ -29,7 +29,8 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch2, CURLOPT_POSTFIELDS, $post2);
 			curl_setopt($ch2, CURLOPT_HTTPHEADER, $headers2);
 			curl_setopt($ch2, CURLOPT_HTTPGET, 1);
-			//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+			curl_setopt($ch2, CURLOPT_FOLLOWLOCATION, true);
+			
 			$result2 = curl_exec($ch2);
 			
 			$profileData = $result2;//json_decode($result2, true);
