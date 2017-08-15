@@ -38,17 +38,28 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 	
 			// Build message to reply back
+			// $messages = [
+				// 'type' => 'text',
+				// 'text' => 'สวัสดี '. $user['displayName']//$userId//$sss //'ทดสอบ '. ' : ' .$text . ' '. $event
+				// ];
 			$messages = [{
-				'type' => 'text',
-				'text' => 'สวัสดี '. $user['displayName']//$userId//$sss //'ทดสอบ '. ' : ' .$text . ' '. $event
-			},
-			{
-				'type' => 'image',
-				'originalContentUrl': $user['pictureUrl'],
-				'previewImageUrl': $user['pictureUrl']
+						 "type" => "template",
+			  "altText" => "this is a buttons template",
+			  "template"=> {
+				  "type"=> "buttons",
+				  "thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
+				  "title"=> "Menu",
+				  "text"=> "Please select",
+				  "actions"=> [
+					  {
+						"type"=> "postback",
+						"label"=> "Buy",
+						"data"=> "action=buy&itemid=123"
+					  },
+				  ]
+			  }
 			}
-				];
-
+			]
 			
 			
 			// Make a POST Request to Messaging API to reply to sender
