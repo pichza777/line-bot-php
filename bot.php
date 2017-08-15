@@ -8,7 +8,7 @@ $content = file_get_contents('php://input');
 // Parse JSON
 
 $events = json_decode($content, true);
-$sss =json_decode($content, true);
+$sss = json_decode($content, true);
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -17,25 +17,7 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		$userId = $event['source']['userId'];
 		
-		// $url2 = 'https://api.line.me/v2/bot/profile';
-			// $data = [
-				// 'userId' => $userId,
-			// ];
-			// $post2 = $userId;//json_encode($data);
-			// $headers2 = array('Authorization: Bearer ' . $access_token);
-
-			// $ch2 = curl_init($url2);
-			// //curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-			// //curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			// curl_setopt($ch2, CURLOPT_POSTFIELDS, $post2);
-			// curl_setopt($ch2, CURLOPT_HTTPHEADER, $headers2);
-			// curl_setopt($ch2, CURLOPT_HTTPGET, 1);
-			// curl_setopt($ch2, CURLOPT_FOLLOWLOCATION, true);
-			
-			// $result2 = curl_exec($ch2);
-			
-			// $profileData = $result2;//json_decode($result2, true);
-			// curl_close($ch2);
+		
 		
 		//if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
