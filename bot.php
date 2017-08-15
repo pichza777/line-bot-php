@@ -32,7 +32,7 @@ if (!is_null($events['events'])) {
 			//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result2 = curl_exec($ch2);
 			curl_close($ch2);
-			$profileData = json_decode($result2, true);
+			$profileData = $result2;//json_decode($result2, true);
 		
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
