@@ -36,19 +36,11 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-			$person = 'GUEST';
-			if($user['userId'] == 'Uccfe8d297327e54976f5ac5be42af52a')
-			{
-				$person = 'อาร์ม';
-			}
-			else
-			{
-				$person = $user['displayName']
-			}
+
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => 'สวัสดี '. $person//$userId//$sss //'ทดสอบ '. ' : ' .$text . ' '. $event
+				'text' => 'สวัสดี '. $user['displayName']//$userId//$sss //'ทดสอบ '. ' : ' .$text . ' '. $event
 				];
 
 			
