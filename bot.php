@@ -72,6 +72,7 @@ if (!is_null($events['events'])) {
 		}
 		else
 		{
+			
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
@@ -79,7 +80,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $event['type']//$sss //'ทดสอบ '. ' : ' .$text . ' '. $event
+				'text' => $event['type'] . ' ' . $event['source']['userId']//$sss //'ทดสอบ '. ' : ' .$text . ' '. $event
 				];
 
 			
