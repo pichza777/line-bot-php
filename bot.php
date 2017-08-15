@@ -26,12 +26,12 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-
+			$user = $event['profile'];
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => 'ทดสอบ '. $profileData .' : ' .$text
-			];
+				'text' => 'ทดสอบ '. ' : ' .$text . ' '. $user
+				];
 
 			
 			
