@@ -37,7 +37,7 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			$person = 'GUEST';
-			if($user['userId'] == 'Uccfe8d297327e54976f5ac5be42af52a'
+			if($user['userId'] == 'Uccfe8d297327e54976f5ac5be42af52a')
 			{
 				$person = 'อาร์ม';
 			}
