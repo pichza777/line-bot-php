@@ -29,18 +29,18 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 			$result = curl_exec($ch);
 			curl_close($ch);
-		
+			$user = json_decode($result,true);
 		
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-			$user = $event['profile'];
+
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => 'สวัสดี '.$result['displayName']//$userId//$sss //'ทดสอบ '. ' : ' .$text . ' '. $event
+				'text' => $user['displayName']//$userId//$sss //'ทดสอบ '. ' : ' .$text . ' '. $event
 				];
 
 			
