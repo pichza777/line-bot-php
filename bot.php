@@ -15,14 +15,15 @@ $profileData = '';
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
+$sss = json_decode($content, true);
 $events = json_decode($content, true);
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
-	$sss = '';
+	
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		$sss += json_encode($event);
+		$sss = json_encode($event);
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$text = $event['message']['text'];
